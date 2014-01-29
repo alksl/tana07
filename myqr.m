@@ -7,5 +7,6 @@ function [Q, R] = myqr(A)
     R(i:m, i:n) = apphouse(u, R(i:m, i:n));
     Q(i:m, 1:m) = apphouse(u, Q(i:m, 1:m));
   end
+  Q=Q'
 end
 

@@ -126,8 +126,7 @@ disp(R);
 disp(norm(A - (refQ*refR), inf));
 disp(norm(A - (Q*R), inf));
 
-% Den inbyggda qr funktionen ger en mycket bättre faktorisering eftersom
-% att felet A - Q*R är mycket mindre. 
+% Båda funktionerna är ungefär lika bra.
 
 
 
