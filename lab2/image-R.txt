@@ -1,0 +1,9 @@
+
+HOW TO READ AND DISPLAY DIGITS in R:
+
+azip=read.table("azip.dat")
+image(matrix(azip[ ,i],ncol=16)[ ,16:1],col=gray(255:0/255))
+
+This displays the i'th digit (column) in azip
+
+ 
