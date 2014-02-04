@@ -1,0 +1,125 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>llsf_multi</title>
+      <meta name="generator" content="MATLAB 7.4">
+      <meta name="date" content="2007-05-22">
+      <meta name="m-file" content="llsf_multi"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content"><pre class="codeinput"><span class="comment">% LLSF_MULTI - Linear Least Squares Fit for multi-label</span>
+<span class="comment">% collections [2]</span>
+<span class="comment">%   LABELS_AS=LLSF_MULTI(A, Q, CLUSTERS, LABELS, L, METHOD,</span>
+<span class="comment">%   THRESHOLDS, SVD_METHOD, CLSI_METHOD) classifies the</span>
+<span class="comment">%   columns of Q with the Linear Least Squares Fit classifier</span>
+<span class="comment">%   [2] using the pre-classified columns of matrix A with</span>
+<span class="comment">%   labels LABELS (cell array of vectors of integers).</span>
+<span class="comment">%   THRESHOLDS is a vector of class threshold values, while</span>
+<span class="comment">%   CLUSTERS is a structure defining the classes. METHOD</span>
+<span class="comment">%   is the method used for the approximation of the rank-l</span>
+<span class="comment">%   truncated SVD, with possible values:</span>
+<span class="comment">%       - 'clsi': Clustered Latent Semantic Indexing [3].</span>
+<span class="comment">%       - 'cm': Centroids Method [1].</span>
+<span class="comment">%       - 'svd': Singular Value Decomosition.</span>
+<span class="comment">%   SVD_METHOD defines the method used for the computation</span>
+<span class="comment">%   of the SVD, while CLSI_METHOD defines the method used</span>
+<span class="comment">%   for the determination of the number of factors from each</span>
+<span class="comment">%   class used in Clustered Latent Semantic Indexing in case</span>
+<span class="comment">%   METHOD equals 'clsi'.</span>
+<span class="comment">%</span>
+<span class="comment">%   REFERENCES:</span>
+<span class="comment">%   [1] H. Park, M. Jeon, and J. Rosen. Lower Dimensional</span>
+<span class="comment">%   Representation of Text Data Based on Centroids and Least</span>
+<span class="comment">%   Squares. BIT Numerical Mathematics, 43(2):427&#8211;448, 2003.</span>
+<span class="comment">%   [2] Y. Yang and C. Chute. A Linear Least Squares Fit</span>
+<span class="comment">%   Mapping Method for Information Retrieval from Natural</span>
+<span class="comment">%   Language Texts. In Proc. 14th Conference on Computational</span>
+<span class="comment">%   Linguistics, pages 447&#8211;453, Morristown, NJ, USA, 1992.</span>
+<span class="comment">%   [3] D. Zeimpekis and E. Gallopoulos, "Linear and</span>
+<span class="comment">%   Non-Linear Dimensional Reduction via Class Representatives</span>
+<span class="comment">%   for Text Classification".  In Proc. 2006 IEEE International</span>
+<span class="comment">%   Conference on Data Mining (ICDM'06), Hong Kong, Dec. 2006.</span>
+<span class="comment">%</span>
+<span class="comment">% Copyright 2007 Dimitrios Zeimpekis, Efstratios Gallopoulos</span></pre>
+      </div>
+	<center><span style="font-family: Tahoma">
+	<a href="../../html/tmg_main.htm">Return to main page</a>&nbsp;&nbsp;&nbsp;</span>
+	<hr>
+	</center>
+      <p align="left"><span style="font-family: Tahoma"><font size="2">Research supported in part by the
+		University of Patras K. Karatheodori grant no. B120 and a Bodossaki
+		foundation scholarship.</font></span></p>
+	<p align="left">
+	<img border="0" src="../../logo-panepistimiouen.gif" width="154" height="62"><img border="0" src="../../Caratheodory_2.jpg" width="50" height="62"></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Copyright © 2007 Dimitrios Zeimpekis and
+	Efstratios Gallopoulos</font></span></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Please send comments to
+	<a href="mailto:dsz@hpclab.ceid.upatras.gr">dsz@hpclab.ceid.upatras.gr</a>
+	or stratis@ceid.upatras.gr</font></span></p>
+   </body>
+</html>

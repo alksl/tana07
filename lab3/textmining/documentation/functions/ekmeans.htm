@@ -1,0 +1,115 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>ekmeans</title>
+      <meta name="generator" content="MATLAB 7.4">
+      <meta name="date" content="2007-05-22">
+      <meta name="m-file" content="ekmeans"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content"><pre class="codeinput"><span class="comment">% EKMEANS - Euclidean k-Means Clustering Algorithm</span>
+<span class="comment">%   EKMEANS clusters a term-document matrix using the standard</span>
+<span class="comment">%   k-means clustering algorithm. CLUSTERS=EKMEANS(A, C, K,</span>
+<span class="comment">%   TERMINATION) returns a cluster structure with K clusters</span>
+<span class="comment">%   for the term-document matrix A using as initial centroids</span>
+<span class="comment">%   the columns of C (initialized randomly when it is empty).</span>
+<span class="comment">%   TERMINATION defines the termination method used in k-means</span>
+<span class="comment">%   ('epsilon' stops iteration when objective function decrease</span>
+<span class="comment">%   falls down a user defined threshold - see OPTIONS input</span>
+<span class="comment">%   argument - while 'n_iter' stops iteration when a user</span>
+<span class="comment">%   defined number of iterations has been reached).</span>
+<span class="comment">%   [CLUSTERS, Q]=EKMEANS(A, C, K, TERMINATION) returns also</span>
+<span class="comment">%   the vector of objective function values for each iteration</span>
+<span class="comment">%   and [CLUSTERS, Q, C]=EKMEANS(A, C, K, TERMINATION) returns</span>
+<span class="comment">%   the final centroid vectors.</span>
+<span class="comment">%   EKMEANS(A, C, K, TERMINATION, OPTIONS) defines optional</span>
+<span class="comment">%   parameters:</span>
+<span class="comment">%       - OPTIONS.iter: Number of iterations (default 10).</span>
+<span class="comment">%       - OPTIONS.epsilon: Value for epsilon convergence</span>
+<span class="comment">%         criterion (default 1).</span>
+<span class="comment">%       - OPTIONS.dsp: Displays results (default 1) or</span>
+<span class="comment">%         not (0) to the command window.</span>
+<span class="comment">%</span>
+<span class="comment">% Copyright 2007 Dimitrios Zeimpekis, Efstratios Gallopoulos</span></pre>
+      </div>
+	<center><span style="font-family: Tahoma">
+	<a href="../../html/tmg_main.htm">Return to main page</a>&nbsp;&nbsp;&nbsp;</span>
+	<hr>
+	</center>
+      <p align="left"><span style="font-family: Tahoma"><font size="2">Research supported in part by the
+		University of Patras K. Karatheodori grant no. B120 and a Bodossaki
+		foundation scholarship.</font></span></p>
+	<p align="left">
+	<img border="0" src="../../logo-panepistimiouen.gif" width="154" height="62"><img border="0" src="../../Caratheodory_2.jpg" width="50" height="62"></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Copyright © 2007 Dimitrios Zeimpekis and
+	Efstratios Gallopoulos</font></span></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Please send comments to
+	<a href="mailto:dsz@hpclab.ceid.upatras.gr">dsz@hpclab.ceid.upatras.gr</a>
+	or stratis@ceid.upatras.gr</font></span></p>
+   </body>
+</html>

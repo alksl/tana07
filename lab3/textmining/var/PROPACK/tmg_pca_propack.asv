@@ -1,0 +1,2 @@
+function [U, S, V]=tmg_pca_propack(A, c, e)
+AA=A; h=c; 

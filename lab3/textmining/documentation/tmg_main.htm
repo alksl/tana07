@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Text to Matrix Generator</title>
+    <link href="tmgstyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="font-size: 24pt; color: #552800; font-family: Tahoma">Text to Matrix Generator</span></p>
+	<p align="center" class="MsoNormal" style="text-align: center">
+        <font size="3">Dimitrios Zeimpekis&nbsp;&nbsp;&nbsp; Efstratios 
+		Gallopoulos</font></p>
+	<p align="center" class="MsoNormal" style="text-align: center">
+        <font size="3">{<a href="mailto:dsz@hpclab.ceid.upatras.gr">dsz</a>,
+		<a href="mailto:stratis@hpclab.ceid.upatras.gr">stratis</a>}@hpclab.ceid.upatras.gr
+		</font></p>
+	<p align="center" class="MsoNormal" style="text-align: center">
+        <font size="3">Computer Engineering &amp; Informatics Dept, University of 
+		Patras, Greece</font></p>
+    <p class="Section1">
+        <span style="font-size: 24pt; color: #552800; font-family: Tahoma"></span>
+        <?xml namespace="" ns="urn:schemas-microsoft-com:office:office" prefix="o" ?><o:p></o:p>&nbsp;</p>
+    <xml>
+        <u1:p>
+        </u1:p>
+    </xml><p class="MsoNormal" style="margin-bottom: 12pt">
+        <span style="color: #552800; font-family: Tahoma">
+            <xml>
+                <u2:shapetype id="_x0000_t75" coordsize="21600,21600" filled="f" path="m@4@5l@4@11@9@11@9@5xe"
+                    stroked="f" u1:preferrelative="t" u1:spt="75">
+  <u2:stroke joinstyle="miter"></u2:stroke>
+  <u2:formulas>
+   <u2:f eqn="if lineDrawn pixelLineWidth 0"></u2:f>
+   <u2:f eqn="sum @0 1 0"></u2:f>
+   <u2:f eqn="sum 0 0 @1"></u2:f>
+   <u2:f eqn="prod @2 1 2"></u2:f>
+   <u2:f eqn="prod @3 21600 pixelWidth"></u2:f>
+   <u2:f eqn="prod @3 21600 pixelHeight"></u2:f>
+   <u2:f eqn="sum @0 0 1"></u2:f>
+   <u2:f eqn="prod @6 1 2"></u2:f>
+   <u2:f eqn="prod @7 21600 pixelWidth"></u2:f>
+   <u2:f eqn="sum @8 21600 0"></u2:f>
+   <u2:f eqn="prod @7 21600 pixelHeight"></u2:f>
+   <u2:f eqn="sum @10 21600 0"></u2:f>
+  </u2:formulas>
+  <u2:path u1:extrusionok="f" gradientshapeok="t" u1:connecttype="rect"></u2:path>
+  <u1:lock u2:ext="edit" aspectratio="t"></u1:lock>
+ </u2:shapetype>
+            </xml><xml>
+                <u2:shape id="_x0000_i1031" style="width: 246.75pt; height: 141pt" type="#_x0000_t75">
+  <u2:imagedata src="tmg_files/image001.jpg" u1:title="about_tmg"></u2:imagedata>
+ </u2:shape>
+            </xml><xml>
+                <br>
+                </br>
+                <span style="color: #552800" xmlns="">
+                    <span style="font-family: Tahoma">
+                    </span>
+                </span>
+            </xml><xml>
+                <u1:p>
+                </u1:p>
+            </xml>Text to Matrix Generator (TMG) is a MATLAB Toolbox that can be used for various
+            Data Mining (DM) and Information Retrieval (IR) tasks. TMG uses the sparse matrix
+            infrastracture of MATLAB that is especially suited for TM applications where data
+            are extremely sparse. Initially built as a preprocessing tool, TMG offers now a
+            wide range of DM tools. In particular, TMG is composed of five Graphical User Interface
+            (GUI) modules, presented in Figure 1 (arrows show modules dependencies).&nbsp;<br />
+            <br style="mso-special-character: line-break" />
+            <br style="mso-special-character: line-break" />
+            <?xml namespace="" prefix="u1" ?><u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800">
+            <img id="_x0000_i1025" height="152" src="tmg.jpg" style="font-family: Tahoma" width="464" /></span><span
+                style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">Figure 1: Structure
+            and dependencies of GUI modules of TMG.<u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        &nbsp;</p>
+	<p align="center" class="MsoNormal" style="text-align: left">
+        <strong>
+		<span style="font-size: 14pt; color: #552800; font-family: Tahoma">
+		Installation Instructions</span></strong><span style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span>&nbsp;</p>
+	<p align="center" class="MsoNormal" style="text-align: left">
+        Installation of TMG is straightforward by means of the init_tmg script. 
+		In particular, the user has to perform the following steps: </p>
+	<ul>
+		<li>
+		<p align="center" class="MsoNormal" style="text-align: left">For MySQL 
+		functionality, install MySQL and Java Connector. </p></li>
+		<li>
+		<p align="center" class="MsoNormal" style="text-align: left">Download 
+		TMG by filling the form from: <br>
+		<center><a href="http://scgroup.hpclab.ceid.upatras.gr/scgroup/Projects/TMG/tmg/_request.php/footnote{We%20are%20currently%20on%20the%20development%20of%20a%20wiki%20page">
+		http://scgroup.hpclab.ceid.upatras.gr/scgroup/Projects/TMG/tmg_request.php</a></center>
+		</li>
+		<li>
+		<p align="left">Unzip TMG_X.XRX.zip and start MATLAB. Figure 2 depicts 
+		the directory structure of the TMG root directory. </li>
+		<li>
+		<p align="left">Change path to the TMG root directory.</li>
+		<li>
+		<p align="justify">Run init_tmg. Give the MySQL login and password as 
+		well as the root directory of the MySQL Java Connector. The installation 
+		script creates all necessary information (including MySQL database TMG) 
+		and adds to the MATLAB path all necessary directories. </li>
+		<li>
+		<p align="left">Run gui. Alternatively, use the command line interface, 
+		type &quot;help tmg&quot;.</li>
+	</ul>
+    <p align="justify">TMG requires the following third party software packages:
+	</p>
+	<ul>
+		<li>
+		<p align="justify">MySQL: http://www.mysql.com/,
+		<a href="http://dev.mysql.com/downloads/connector/j/5.0.html">
+		http://dev.mysql.com/downloads/connector/j/5.0.html</a></li>
+		<li>
+		<p align="justify">PROPACK:
+		<a href="http://soi.stanford.edu/rmunk/PROPACK/index.html">
+		http://soi.stanford.edu/rmunk/PROPACK/index.html</a></li>
+		<li>
+		<p align="justify">SDDPACK:
+		<a href="http://www.cs.umd.edu/oleary/SDDPACK/README.html">
+		http://www.cs.umd.edu/oleary/SDDPACK/README.html</a></li>
+		<li>
+		<p align="justify">SPQR:
+		<a href="http://portal.acm.org/citation.cfm?id=1067972">
+		http://portal.acm.org/citation.cfm?id=1067972</a></li>
+	</ul>
+	<p align="justify">PROPACK, SDDPACK and SPQR packages are included into TMG, 
+	while the user has to download MySQL. However, we note that MySQL related 
+	software is necessary only if the user intends to use the database support 
+	implemented into TMG. Ordinary TMG will run without any problem on a Matlab 
+	7.0 environment without any other special software.&nbsp; </p>
+	<p align="center">
+	<img border="0" src="tmg_dir_structure.jpg" width="535" height="654"></p>
+	<p align="center">
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">Figure 
+	2: Structure of TMG root directory.</span></p>
+	<p></p>
+    <p class="MsoNormal">
+        <strong><span style="font-size: 14pt; color: #552800; font-family: Tahoma">Indexing
+            Module (tmg_gui)<u1:p></u1:p></span></strong></p>
+    <p class="MsoNormal" align="justify">
+        <span style="color: #552800; font-family: Tahoma">TMG can be used for the construction
+            of new and the update of existing term-document matrices (tdms) from text collections,
+            in the form of MATLAB sparse arrays. To this end, TMG implements various steps such
+            as:
+            <u1:p></u1:p>
+        </span>
+    </p>
+    <div class="Section1">
+        <ul type="disc">
+            <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+                mso-list: l9 level1 lfo1; tab-stops: list .5in"><span style="font-family: Tahoma">Removal
+                    of stopwords.
+                    <u1:p></u1:p>
+                </span>
+                <o:p></o:p>
+            </li>
+        </ul>
+    </div>
+    <div class="Section1">
+        <ul type="disc">
+            <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+                mso-list: l15 level1 lfo2; tab-stops: list .5in"><span style="font-family: Tahoma">Apply
+                    stemming (currently Porter stemming algorithm [8] ).<u1:p></u1:p>
+                </span>
+                <o:p></o:p>
+            </li>
+        </ul>
+    </div>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l12 level1 lfo3; tab-stops: list .5in"><span style="font-family: Tahoma">Remove
+                of short/long terms.<u1:p></u1:p>
+            </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l0 level1 lfo4; tab-stops: list .5in"><span style="font-family: Tahoma">Remove
+                of frequent/infrequent terms (locally or globally).&nbsp;<u1:p></u1:p>
+            </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l5 level1 lfo5; tab-stops: list .5in"><span style="font-family: Tahoma">Term
+                weighting and normalization.
+                <u1:p></u1:p>
+            </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l2 level1 lfo6; tab-stops: list .5in"><span style="font-family: Tahoma">Html
+                filtering, processing of Postscript and PDF.
+                <u1:p></u1:p>
+            </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l20 level1 lfo7; tab-stops: list .5in"><span style="font-family: Tahoma">Store
+                in MySQL (optionally).<u1:p></u1:p>
+            </span>
+        </li>
+    </ul>
+    <p class="MsoNormal" align="justify">
+        <span style="color: #552800; font-family: Tahoma">The resulting tdms can be stored as
+            "mat" files, while text can also be stored in MySQL for further procesing. TMG can
+            also update existing tdms by efficient incremental updating or downdating operations.
+            Finally, TMG can also construct query vectors using the existing dictionary that
+            can be used from the retrieval and classification modules.<u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span>&nbsp;</p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800">
+            <img id="IMG1" height="598" language="javascript" onclick="return IMG1_onclick()"
+                src="tmg_gui.jpg" style="font-family: Tahoma" width="604" /></span><span style="color: #552800;
+                    font-family: Tahoma">&nbsp;</span><o:p></o:p></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">
+            <u1:p></u1:p>
+            Figure 3: tmg_gui. </span>
+    </p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">See <a href="tmg_gui.htm">details</a>
+            and a <a href="tmg_gui1.htm">demostration</a> of tmg_gui.<u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span>&nbsp;</p>
+    <p class="MsoNormal">
+        <strong><span style="font-size: 14pt; color: #552800; font-family: Tahoma">Dimensionality
+            Reduction module (dr_gui)</span></strong></p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">This module deploys a variety of powerful
+            techniques designed to efficiently handle high dimensional data. Dimensionality
+            Reduction (DR) is a common technique that is widely used. The target is dual: (a)
+            more economical representation of data, and (b) better semantic representation.
+            TMG implements six DR techniques.
+            <u1:p></u1:p>
+        </span>
+    </p>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l14 level1 lfo8; tab-stops: list .5in"><span style="font-family: Tahoma">Singular
+                Value Decomposition (SVD).</span><o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l7 level1 lfo9; tab-stops: list .5in"><span style="font-family: Tahoma">Principal
+                Component Analysis (PCA). </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l18 level1 lfo10; tab-stops: list .5in"><span style="font-family: Tahoma">
+                Clustered Latent Semantic Indexing (CLSI) [12, 13]. </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l17 level1 lfo11; tab-stops: list .5in"><span style="font-family: Tahoma">
+                Centroids Method (CM) [7]. </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l6 level1 lfo12; tab-stops: list .5in"><span style="font-family: Tahoma">Semidiscrete
+                Decomposition (SDD) [6]. </span>
+            <o:p></o:p>
+        </li>
+    </ul>
+    <ul type="disc">
+        <li class="MsoNormal" style="color: #552800; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto;
+            mso-list: l4 level1 lfo13; tab-stops: list .5in"><span style="font-family: Tahoma">SPQR
+                Decomposition [2].
+            </span>
+        </li>
+    </ul>
+    <p class="MsoNormal">
+        <span style="color: black; font-family: Tahoma">DR data can be stored as "mat" files
+            and used for further processing.<u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span>&nbsp;</p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800">
+            <img id="Img2" height="598" language="javascript" onclick="return IMG1_onclick()"
+                src="dr_gui.jpg" style="font-family: Tahoma" width="604" /></span><span style="color: #552800;
+                    font-family: Tahoma">&nbsp;</span><o:p></o:p></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">
+            <u1:p></u1:p>
+            Figure 4: dr_gui. </span>
+    </p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">See <a href="dr_gui.htm">details</a>
+            and a <a href="dr_gui1.htm">demostration</a> of dr_gui.</span></p>
+    <p>
+        &nbsp;<o:p></o:p>&nbsp;</p>
+    <p class="MsoNormal">
+        <strong><span style="font-size: 14pt; color: #552800; font-family: Tahoma">Retrieval
+            module (retrieval_gui)</span></strong></p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">TMG offers two alternatives for Text
+            Mining. </span>
+    </p>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l10 level1 lfo14; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">Vector Space Model (VSM) 
+		[9].</span> </li>
+    </ul>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l19 level1 lfo15; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">Latent Semantic Analysis (LSA) [1, 
+		4],
+        </span></li>
+    </ul>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">using a combination of any DR technique
+            and Latent Semantic Indexing (LSI). Using the corresponding GUI, the user can apply
+            a question to an existing dataset using any of the aforementioned techniques and
+            get HTML response.</span></p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span>&nbsp;</p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800">
+            <img id="Img3" height="598" language="javascript" onclick="return IMG1_onclick()"
+                src="retrieval_gui.jpg" style="font-family: Tahoma" width="604" /></span><span style="color: #552800;
+                    font-family: Tahoma">&nbsp;</span><o:p></o:p></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">
+            <u1:p></u1:p>
+            Figure 5: retrieval_gui. </span>
+    </p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">See <a href="retrieval_gui.htm">details</a>
+            and a <a href="retrieval_gui1.htm">demostration</a> of retrieval_gui.</span></p>
+    <p>
+        &nbsp;<o:p></o:p>&nbsp;</p>
+    <p class="MsoNormal">
+        <strong><span style="font-size: 14pt; color: #552800; font-family: Tahoma">Clustering
+            module (clustering_gui)</span></strong></p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">TMG implements three clustering algorithms.
+        </span>
+    </p>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l8 level1 lfo16; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">k-means. </span></li>
+    </ul>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l3 level1 lfo17; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">Spherical k-means [5]. </span></li>
+    </ul>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l13 level1 lfo18; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">Principal Direction Divisive Partitioning
+            (PDDP) [3,11]. </span></li>
+    </ul>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">Regarding PDDP, TMG implements the
+            basic algorithm as well as the PDDP(l) [11] along with some recent hybrid variants
+            of PDDP and kmeans</span><span style="color: black; font-family: Tahoma"> 
+		[15].<u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span>&nbsp;</p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800">
+            <img id="Img4" height="598" language="javascript" onclick="return IMG1_onclick()"
+                src="clustering_gui.jpg" style="font-family: Tahoma" width="604" /></span><span style="color: #552800;
+                    font-family: Tahoma">&nbsp;</span><o:p></o:p></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">
+            <u1:p></u1:p>
+            Figure 6: clustering_gui. </span>
+    </p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">See <a href="clustering_gui.htm">details</a>
+            and a <a href="clustering_gui1.htm">demostration</a> of clustering_gui.</span></p>
+    <p>
+        &nbsp;<o:p></o:p>&nbsp;</p>
+    <p class="MsoNormal">
+        <strong><span style="font-size: 14pt; color: #552800; font-family: Tahoma">Classification
+            module (classification_gui)</span></strong></p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">TMG implements three classification
+            algorithms. </span>
+    </p>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l11 level1 lfo19; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">k Nearest Neighboors (kNN). </span></li>
+    </ul>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l16 level1 lfo20; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">Rocchio. </span></li>
+    </ul>
+    <ul>
+        <li class="MsoNormal" style="mso-list: l1 level1 lfo21; tab-stops: list .5in"><span
+            style="color: #552800; font-family: Tahoma">Linear Least Squares Fit (LLSF) [10].
+        </span></li>
+    </ul>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">All these algorithms can be combined
+            with CLSI, CM and SVD DR techniques</span><span style="color: black; font-family: Tahoma">.<u1:p></u1:p></span></p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">&nbsp;<u1:p></u1:p></span>&nbsp;</p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800">
+            <img id="Img5" height="598" language="javascript" onclick="return IMG1_onclick()"
+                src="classification_gui.jpg" style="font-family: Tahoma" width="604" /></span>&nbsp;</p>
+    <p align="center" class="MsoNormal" style="text-align: center">
+        <span style="color: #552800; font-family: Tahoma">Figure 7: classification_gui.&nbsp;<u1:p></u1:p></span></p>
+    <p class="MsoNormal">
+        <span style="color: #552800; font-family: Tahoma">See <a href="classification_gui.htm">
+            details</a> and a <a href="classification_gui1.htm">demostration</a> of classification_gui.</span></p>
+    <p>
+        &nbsp;</p>
+	<p>
+        <strong><span style="font-size: 14pt">
+            Acknowledgements</span></strong></p>
+	<p align="justify">
+        <strong style="font-weight: 400"><font size="3">TMG</font><font size="3"> 
+		was conceived after a motivating discussion with Andrew Knyazev 
+		regarding a collection of MATLAB tools we had put together to aid in our 
+		clustering experiments. We thank our collegues Ioannis Antonellis, 
+		Anastasios Zouzias, Efi Kokiopoulou and Constantine Bekas for many 
+		helpful suggestions, Jacob Kogan and Charles Nicholas for inviting us to 
+		contribute to [14], Elias Houstis for his help in the initial phases of 
+		this research and Michael Berry, Tamara Kolda and Rasmus Munk Larsen for 
+		letting us use and distribute SPQR, SDDPACK and PROPACK software 
+		respectively. Special thanks are due to many of the users for their 
+		constructive comments regarding TMG. This research was supported in part 
+		by a University of Patras ``Karatheodori'' grant. The first author was 
+		also supported by a Bodossaki Foundation graduate fellowship.</font></strong></p>
+    <p>
+        <strong><span style="font-size: 14pt">
+            References</span></strong></p>
+    <p class="MsoNormal">
+        [1] M. Berry, Z. Drmac, and E. Jessup, Matrices, vector spaces, and 
+		information retrieval, SIAM Review 41 (1998), 335–362.</p>
+	<p class="MsoNormal">
+        [2] M. W. Berry, S. A. Pulatova, and G. W. Stewart, Computing sparse 
+		reduced-rank approximations to sparse matrices, ACM TOMS 31 (2005), no. 
+		2.</p>
+	<p class="MsoNormal">
+        [3] D. Boley, Principal direction divisive partitioning, Data Mining and 
+		Knowledge Discovery 2 (1998), no. 4, 325–344.</p>
+	<p class="MsoNormal">
+        [4] S. Deerwester, S. Dumais, G. Furnas, T. Landauer, and Harshman R., 
+		Indexing by Latent Semantic Analysis, Journal of the American Society 
+		for Information Science 41 (1990), no. 6, 391–407.</p>
+	<p class="MsoNormal">
+        [5] I. S. Dhillon and D. S. Modha, Concept decompositions for large 
+		sparse text data using clustering, Machine Learning 42 (2001), no. 1, 
+		143–175.</p>
+	<p class="MsoNormal">
+        [6] T. Kolda and D. O’Leary, Algorithm 805: computation and uses of the 
+		semidiscrete matrix decomposition, ACM TOMS 26 (2000), no. 3.</p>
+	<p class="MsoNormal">
+        [7] H. Park, M. Jeon, and J. Rosen, Lower dimensional representation of 
+		text data based on centroids and least squares, BIT 43 (2003).</p>
+	<p class="MsoNormal">
+        [8] M.F. Porter, An algorithm for suffix stripping, Program (1980), no. 
+		3, 130–137.</p>
+	<p class="MsoNormal">
+        [9] G. Salton, C. Yang, and A. Wong, A Vector-Space Model for Automatic 
+		Indexing, Communications of the ACM 18 (1975), no. 11, 613–620.</p>
+	<p class="MsoNormal">
+        [10] Y. Yang and C. Chute, A linear least squares fit mapping method for 
+		information retrieval from natural language texts, In 14th Conf. Comp. 
+		Linguistics, 1992.</p>
+	<p class="MsoNormal">
+        [11] D. Zeimpekis and E. Gallopoulos, PDDP(l): Towards a Flexing 
+		Principal Direction Divisive Partitioning Clustering Algorithms, Proc. 
+		IEEE ICDM ’03 Workshop on Clustering Large Data Sets (Melbourne, 
+		Florida) (D. Boley, I. Dhillon, J. Ghosh, and J. Kogan, eds.), 2003, pp. 
+		26–35.</p>
+	<p class="MsoNormal">
+        [12] D. Zeimpekis and E. Gallopoulos, CLSI: A flexible approximation 
+		scheme from clustered term-document matrices, In Proc. SIAM 2005 Data 
+		Mining Conf. (Newport Beach, California) (H. Kargupta, J. Srivastava, C. 
+		Kamath, and A. Goodman, eds.), April 2005, pp. 631–635.</p>
+	<p class="MsoNormal">
+        [13] D. Zeimpekis and E. Gallopoulos, Linear and non-linear dimensional 
+		reduction via class representatives for text classification, In Proc. of 
+		the 2006 IEEE International Conference on DataMining (Hong Kong), 
+		December 2006, pp. 1172–1177.</p>
+	<p class="MsoNormal">
+        [14] D. Zeimpekis and E. Gallopoulos, TMG: A MATLAB toolbox for 
+		generating term document matrices from text collections, Grouping 
+		Multidimensional Data: Recent Advances in Clustering (J. Kogan, C. 
+		Nicholas, and M. Teboulle, eds.), Springer, Berlin, 2006, pp. 187–210.</p>
+	<p class="MsoNormal">
+        [15] D. Zeimpekis and E. Gallopoulos, k-means steering of spectral 
+		divisive clustering algorithms, In Proc. of Text Mining Workshop 
+		(Minneapolis), 2007.<span style="font-size: 10pt; color: #552800; font-family: Tahoma"></span>&nbsp;</p>
+    <p class="MsoNormal">
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">
+            </p>
+            <hr align="center" size="2" width="100%" />
+        </span>
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">Research supported
+            in part by the
+            <xml>
+                <st1:place u3:st="on">
+  <st1:PlaceType __designer:dtid="281474976710809" u3:st="on">University</st1:PlaceType>
+   of  
+  <st1:PlaceName __designer:dtid="281474976710810" u3:st="on">Patras K.  Karatheodori</st1:PlaceName></st1:place></xml><xml>
+              
+              
+              
+              
+              
+              
+              
+              grant no. 
+</xml><xml>
+    <span class="GramE">B120 and a Bodossaki foundation scholarship.</span>
+    <br>
+    </br>
+    <br>
+    </br>
+    <img id="_x0000_i1029" height="62" src="logo-panepistimiouen.gif" width="154">
+    </img>
+    <img id="_x0000_i1030" height="61" src="Caratheodory_2.jpg" width="50">
+    </img>
+</xml><xml>
+    <u1:p>
+    </u1:p>
+</xml></span><p>
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">Copyright © 2007
+            Dimitrios Zeimpekis and Efstratios Gallopoulos<u1:p></u1:p></span></p>
+    <p>
+        <span style="font-size: 10pt; color: #552800; font-family: Tahoma">Please send comments
+            to </span><span style="font-size: 10pt; color: #552800; font-family: 'Book Antiqua';
+                mso-bidi-font-family: Tahoma"><a href="mailto:dsz@hpclab.ceid.upatras.gr"><span style="font-family: Tahoma">
+                    dsz@hpclab.ceid.upatras.gr</span></a></span><span style="font-size: 10pt; color: #552800;
+                        font-family: Tahoma"> or stratis@ceid.upatras.gr<u1:p></u1:p></span></p>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>scut_knn</title>
+      <meta name="generator" content="MATLAB 7.4">
+      <meta name="date" content="2007-05-22">
+      <meta name="m-file" content="scut_knn"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content"><pre class="codeinput"><span class="comment">% SCUT_KNN - implements the Scut thresholding technique from [1]</span>
+<span class="comment">% for the k-Nearest Neighboors classifier</span>
+<span class="comment">%   THRESHOLD=SCUT_KNN(A, Q, K, LABELS_TR, LABELS_TE, MINF1,</span>
+<span class="comment">%   NORMALIZE, STEPS) returns the vector of thresholds for</span>
+<span class="comment">%   the k-Nearest Neighboors classifier for the collection</span>
+<span class="comment">%   [A Q]. A and Q define the training and test parts of</span>
+<span class="comment">%   the validation set with labels LABELS_TR and LABELS_TE</span>
+<span class="comment">%   respectively. MINF1 defines the minimum F1 value and</span>
+<span class="comment">%   NORMALIZE defines if cosine (1) or euclidean distance (0)</span>
+<span class="comment">%   measure of similarity is to be used. Finally, STEPS</span>
+<span class="comment">%   defines the number of steps used during thresholding.</span>
+<span class="comment">%   [THRESHOLD, F, THRESHOLDS]=SCUT_KNN(A, Q, K, LABELS_TR,</span>
+<span class="comment">%   LABELS_TE, MINF1, NORMALIZE, STEPS) returns also the best</span>
+<span class="comment">%   F1 value as well as the matrix of thresholds for each step</span>
+<span class="comment">%   (row i corresponds to step i).</span>
+<span class="comment">%</span>
+<span class="comment">%   REFERENCES:</span>
+<span class="comment">%   [1] Y. Yang. A Study of Thresholding Strategies for Text</span>
+<span class="comment">%   Categorization. In Proc. 24th ACM SIGIR, pages 137&#8211;145,</span>
+<span class="comment">%   New York, NY, USA, 2001. ACM Press.</span>
+<span class="comment">%</span>
+<span class="comment">% Copyright 2007 Dimitrios Zeimpekis, Efstratios Gallopoulos</span></pre>
+      </div>
+	<center><span style="font-family: Tahoma">
+	<a href="../../html/tmg_main.htm">Return to main page</a>&nbsp;&nbsp;&nbsp;</span>
+	<hr>
+	</center>
+      <p align="left"><span style="font-family: Tahoma"><font size="2">Research supported in part by the
+		University of Patras K. Karatheodori grant no. B120 and a Bodossaki
+		foundation scholarship.</font></span></p>
+	<p align="left">
+	<img border="0" src="../../logo-panepistimiouen.gif" width="154" height="62"><img border="0" src="../../Caratheodory_2.jpg" width="50" height="62"></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Copyright © 2007 Dimitrios Zeimpekis and
+	Efstratios Gallopoulos</font></span></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Please send comments to
+	<a href="mailto:dsz@hpclab.ceid.upatras.gr">dsz@hpclab.ceid.upatras.gr</a>
+	or stratis@ceid.upatras.gr</font></span></p>
+   </body>
+</html>

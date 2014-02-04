@@ -1,0 +1,181 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>tmg</title>
+      <meta name="generator" content="MATLAB 7.4">
+      <meta name="date" content="2007-05-22">
+      <meta name="m-file" content="tmg"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content"><pre class="codeinput"><span class="comment">% TMG - Text to Matrix Generator</span>
+<span class="comment">%   TMG parses a text collection and generates the term -</span>
+<span class="comment">%   document matrix.</span>
+<span class="comment">%   A = TMG(FILENAME) returns the term - document matrix,</span>
+<span class="comment">%   that corresponds to the text collection contained in</span>
+<span class="comment">%   files of directory (or file) FILENAME.</span>
+<span class="comment">%   Each document must be separeted by a blank line (or</span>
+<span class="comment">%   another delimiter that is defined by OPTIONS argument)</span>
+<span class="comment">%   in each file.</span>
+<span class="comment">%   [A, DICTIONARY] = TMG(FILENAME) returns also the</span>
+<span class="comment">%   dictionary for the collection, while [A, DICTIONARY,</span>
+<span class="comment">%   GLOBAL_WEIGHTS, NORMALIZED_FACTORS] = TMG(FILENAME)</span>
+<span class="comment">%   returns the vectors of global weights for the dictionary</span>
+<span class="comment">%   and the normalization factor for each document in case</span>
+<span class="comment">%   such a factor is used. If normalization is not used TMG</span>
+<span class="comment">%   returns a vector of all ones.</span>
+<span class="comment">%   [A, DICTIONARY, GLOBAL_WEIGHTS, NORMALIZATION_FACTORS,</span>
+<span class="comment">%   WORDS_PER_DOC] = TMG(FILENAME) returns statistics for</span>
+<span class="comment">%   each document, i.e. the number of terms for each document.</span>
+<span class="comment">%   [A, DICTIONARY, GLOBAL_WEIGHTS, NORMALIZATION_FACTORS,</span>
+<span class="comment">%   WORDS_PER_DOC, TITLES, FILES] = TMG(FILENAME) returns in</span>
+<span class="comment">%   FILES the filenames contained in directory (or file)</span>
+<span class="comment">%   FILENAME and a cell array (TITLES) that containes a</span>
+<span class="comment">%   declaratory title for each document, as well as the</span>
+<span class="comment">%   document's first line. Finally [A, DICTIONARY,</span>
+<span class="comment">%   GLOBAL_WEIGHTS, NORMALIZATION_FACTORS, WORDS_PER_DOC,</span>
+<span class="comment">%   TITLES, FILES, UPDATE_STRUCT] = TMG(FILENAME) returns a</span>
+<span class="comment">%   structure that keeps the essential information for the</span>
+<span class="comment">%   collection' s update (or downdate).</span>
+<span class="comment">%</span>
+<span class="comment">%   TMG(FILENAME, OPTIONS) defines optional parameters:</span>
+<span class="comment">%       - OPTIONS.use_mysql: Indicates if results are to be</span>
+<span class="comment">%         stored in MySQL.</span>
+<span class="comment">%       - OPTIONS.db_name: The name of the directory where</span>
+<span class="comment">%         the results are to be saved.</span>
+<span class="comment">%       - OPTIONS.delimiter: The delimiter between documents</span>
+<span class="comment">%         within the same file. Possible values are 'emptyline'</span>
+<span class="comment">%         (default), 'none_delimiter' (treats each file as a</span>
+<span class="comment">%         single document) or any other string.</span>
+<span class="comment">%       - OPTIONS.line_delimiter: Defines if the delimiter</span>
+<span class="comment">%         takes a whole line of text (default, 1) or not.</span>
+<span class="comment">%       - OPTIONS.stoplist: The filename for the stoplist,</span>
+<span class="comment">%         i.e. a list of common words that we don't use for</span>
+<span class="comment">%         the indexing (default no stoplist used).</span>
+<span class="comment">%       - OPTIONS.stemming: Indicates if the stemming algorithm</span>
+<span class="comment">%         is used (1) or not (0 - default).</span>
+<span class="comment">%       - OPTIONS.update_step: The step used for the incremental</span>
+<span class="comment">%         built of the inverted index (default 10,000).</span>
+<span class="comment">%       - OPTIONS.min_length: The minimum length for a term</span>
+<span class="comment">%         (default 3).</span>
+<span class="comment">%       - OPTIONS.max_length: The maximum length for a term</span>
+<span class="comment">%         (default 30).</span>
+<span class="comment">%       - OPTIONS.min_local_freq: The minimum local frequency for</span>
+<span class="comment">%         a term (default 1).</span>
+<span class="comment">%       - OPTIONS.max_local_freq: The maximum local frequency for</span>
+<span class="comment">%         a term (default inf).</span>
+<span class="comment">%       - OPTIONS.min_global_freq: The minimum global frequency</span>
+<span class="comment">%         for a term (default 1).</span>
+<span class="comment">%       - OPTIONS.max_global_freq: The maximum global frequency</span>
+<span class="comment">%         for a term (default inf).</span>
+<span class="comment">%       - OPTIONS.local_weight: The local term weighting function</span>
+<span class="comment">%         (default 't'). Possible values (see [1, 2]):</span>
+<span class="comment">%               't': Term Frequency</span>
+<span class="comment">%               'b': Binary</span>
+<span class="comment">%               'l': Logarithmic</span>
+<span class="comment">%               'a': Alternate Log</span>
+<span class="comment">%               'n': Augmented Normalized Term Frequency</span>
+<span class="comment">%       - OPTIONS.global_weight: The global term weighting function</span>
+<span class="comment">%         (default 'x'). Possible values (see [1, 2]):</span>
+<span class="comment">%               'x': None</span>
+<span class="comment">%               'e': Entropy</span>
+<span class="comment">%               'f': Inverse Document Frequency (IDF)</span>
+<span class="comment">%               'g': GfIdf</span>
+<span class="comment">%               'n': Normal</span>
+<span class="comment">%               'p': Probabilistic Inverse</span>
+<span class="comment">%       - OPTIONS.normalization: Indicates if we normalize the</span>
+<span class="comment">%         document vectors (default 'x'). Possible values:</span>
+<span class="comment">%               'x': None</span>
+<span class="comment">%               'c': Cosine</span>
+<span class="comment">%       - OPTIONS.dsp: Displays results (default 1) or not (0) to</span>
+<span class="comment">%         the command window.</span>
+<span class="comment">%</span>
+<span class="comment">%   REFERENCES:</span>
+<span class="comment">%   [1] M.Berry and M.Browne, Understanding Search Engines, Mathematical</span>
+<span class="comment">%   Modeling and Text Retrieval, Philadelphia, PA: Society for Industrial</span>
+<span class="comment">%   and Applied Mathematics, 1999.</span>
+<span class="comment">%   [2] T.Kolda, Limited-Memory Matrix Methods with Applications,</span>
+<span class="comment">%   Tech.Report CS-TR-3806, 1997.</span>
+<span class="comment">%</span>
+<span class="comment">% Copyright 2007 Dimitrios Zeimpekis, Efstratios Gallopoulos</span></pre>
+      </div>
+	<center><span style="font-family: Tahoma">
+	<a href="tmg_main.htm">Return to main page</a>&nbsp;&nbsp;&nbsp;</span>
+	<hr>
+	</center>
+      <p align="left"><span style="font-family: Tahoma"><font size="2">Research supported in part by the
+		University of Patras K. Karatheodori grant no. B120 and a Bodossaki
+		foundation scholarship.</font></span></p>
+	<p align="left">
+	<img border="0" src="../logo-panepistimiouen.gif" width="154" height="62"><img border="0" src="../Caratheodory_2.jpg" width="50" height="62"></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Copyright © 2007 Dimitrios Zeimpekis and
+	Efstratios Gallopoulos</font></span></p>
+	</span>
+    <p align="left"><span style="font-family: Tahoma"><font size="2">Please send comments to
+	<a href="mailto:dsz@hpclab.ceid.upatras.gr">dsz@hpclab.ceid.upatras.gr</a>
+	or stratis@ceid.upatras.gr</font></span></p>
+   </body>
+</html>

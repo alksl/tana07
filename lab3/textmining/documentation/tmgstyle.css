@@ -1,0 +1,114 @@
+BODY { 
+ margin: 2% 3% 5% 5%;
+ /*    style variant weight size/height family */
+ /* font: normal normal normal 10pt/1.4 verdana; */
+ font: normal normal normal 10pt/1.4;
+ font-family: Tahoma;
+ 
+ background: rgb(255, 255, 255);  /* #FFFAF0 FloralWhite */
+ color:      rgb(85, 40, 0);      /* #552800 */
+}
+
+A:link {color: rgb(176, 48, 96) } /* unvisited link #B03060 Maroon */
+A:visited {color: rgb(34, 139, 34)} /* visited links  #228B22 ForestGreen */
+A:active {color: lime; bgcolor: rgb(0, 0, 0)} /* active links */
+
+H1, H2, H3, H4, H5, H6, H7 {
+ margin: 0.5em;
+ color: black;
+ /* background-color: rgb(139, 0, 0);   Ditto body */
+ /* background-color: rgb(238, 221, 130); /* LightGoldenrod */
+  background-color: rgb(254, 235, 170); LightGoldenrod--Yellow */
+ /* background-color: rgb(250, 250, 210); LightGoldenrodYellow */
+ /* background-color: rgb(255, 215, 0); gold */
+ padding: 0.01em 0em;
+}
+
+/* H1:first-letter {font:2em fantasy} */
+
+H1 { /* chapter */
+  /*    style variant weight size/height  family */
+  /* font: normal normal bolder 20pt/20pt sans-serif; */
+  /* font: normal normal bolder 1.4em/1.4em sans-serif; */
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+H2 { /* section */
+  /*    style variant weight size/height  family */
+  /* font: normal normal bolder 17pt/17pt sans-serif; */
+  /*  font: normal normal bolder 1.2em/1.2em sans-serif; */
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+H3, H4, H5, H6, H7 { /* subsection */
+  /*    style variant weight size/height  family */
+  /* font: normal normal bolder 14pt/14pt sans-serif; */
+  /*  font: normal normal bolder 1.1em/1.1em sans-serif; */
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+UL { list-style: disc; }
+
+LI, DD, DT { 
+ padding: 0.2em 0em 0.1em 0em;
+/* list-style: disc; */
+}
+
+UL.nodisc LI { list-style: none }
+
+TABLE { 
+  /*    style variant weight size/height family */
+  /* font: normal normal normal 10pt/1.4 serif; */
+  font-size: 11pt/1.4;
+}
+
+TABLE.bg { 
+  /*    style variant weight size/height family */
+  /* font: normal normal normal 10pt/1.4 serif; */
+ font-size: 11pt/1.4;
+ background: rgb(240, 255, 255); /* azure */
+ /* max-width: 80em; */
+}
+
+PRE {
+ margin: 0em 2em 0em 2em; 
+ padding: 0.5em;
+ line-height: 110%;
+ background: rgb(240, 255, 255); /* azure */
+}
+
+BLOCKQUOTE {
+ margin: 0em 1em 0em 1em; 
+ padding: 1em; 
+ border: solid thin;
+ background: rgb(240, 255, 255); /* azure */
+ color:      black;
+}
+
+STRONG {
+ /* font-size: normal; */
+ font-style: bold;
+ color: LightSlateBlue;
+}
+
+KBD {
+ font-weight: bold;
+}
+
+H1 STRONG, H2 STRONG, H3 STRONG, H4 STRONG, UL STRONG  { 
+  /* font-size: small; */
+  font-style: italic;
+ color: rgb(0, 0, 139);         /* DarkBlue */
+}
+
+strong.large { 
+  /* font: normal normal bolder 14pt/14pt sans-serif;*/
+  font-size: 14pt/14pt;
+ color: black;
+}
+/* Local Variables: */
+/* End: */
+
